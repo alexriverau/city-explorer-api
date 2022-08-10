@@ -1,1 +1,40 @@
-# city-explorer-api
+# City Explorer (API)
+
+**Author**: Alex Rivera
+**Version**: 1.0.0
+<!-- (increment the patch/fix version number if you make more commits past your first submission) -->
+
+## Overview
+<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+## Getting Started
+<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+[Trello Board](https://trello.com/invite/b/jZlZQMRq/2976b716ca5978dca4d6fca5cd99f3f2/alexs-city-explorer)
+
+## Architecture
+<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+* ExpressJS
+
+![Web Request Response Cycle](img/city_explorer_API.jpg)
+
+## Change Log
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+## Credit and Collaborations
+<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+---
+
+Name of feature: Lab07
+
+Estimate of time needed to complete: 3hr
+
+Start time: 8pm CST
+
+Finish time:
+
+Actual time needed to complete:
