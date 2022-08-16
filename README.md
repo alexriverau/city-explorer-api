@@ -1,7 +1,7 @@
 # City Explorer (API)
 
 **Author**: Alex Rivera
-**Version**: 1.0.0
+**Version**: 1.0.3
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ## Overview
@@ -17,7 +17,7 @@
 
 * ExpressJS
 
-![Web Request Response Cycle](img/city_explorer_API.jpg)
+![Web Request Response Cycle](img/city_explorer_wrrc.jpg)
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -28,13 +28,3 @@
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
 ---
-
-Name of feature: Lab07
-
-Estimate of time needed to complete: 3hr
-
-Start time: 8pm CST
-
-Finish time:
-
-Actual time needed to complete:
