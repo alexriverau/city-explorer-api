@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+let cache = require('./cache');
 
 async function getWeather(req, res, next) {
   const city = req.query.searchQuery;
