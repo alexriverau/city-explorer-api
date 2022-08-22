@@ -1,19 +1,33 @@
 'use strict';
 
 const axios = require('axios');
+let cache = require('./cache.js');
 
-async function getMovies(searchQuery) {
-  // const city = req.query.searchQuery;
+function getMovies(searchQuery) {
+  const key = 'movies-' + searchQuery;
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`;
 
+  if (cache[key]) {
+    console.log('Cache hit');
+  } else {
+    console.log('Cache miss');
+    cache[key] = {};
+    cache[key].data = axios
+      .get(url)
+      .then((response) => parseMovies(response.data));
+  }
+
+  return cache[key].data;
+}
+
+function parseMovies(moviesData) {
   try {
-    const moviesRes = await axios.get(url);
-    const moviesArr = moviesRes.data.results.map((movie) => new Movie(movie));
-    // res.status(200).send(moviesArr);
-    return Promise.resolve(moviesArr);
-  } catch (error) {
-    console.error(error);
-    return Promise.reject(error);
+    const moviesSummaries = moviesData.results.map((movie) => {
+      return new Movie(movie);
+    });
+    return Promise.resolve(moviesSummaries);
+  } catch (e) {
+    return Promise.reject(e);
   }
 }
 
