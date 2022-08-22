@@ -22,16 +22,31 @@ app.get('/', (request, response) => {
 });
 
 // endpoint weather data
-app.get('/weather', getWeather);
+// app.get('/weather', getWeather);
+
+app.get('/weather', async (req, res) => {
+  getWeather(req)
+    .then((weatherPromise) => res.status(200).send(weatherPromise))
+    .catch((error) => res.status(500).send('weather not found' + error));
+});
 
 // endpoint movies data
-app.get('/movies', getMovies);
+// app.get('/movies', getMovies);
+app.get('/movies', async (req, res) => {
+  getMovies(req.query.searchQuery)
+    .then((moviePromise) => res.status(200).send(moviePromise))
+    .catch((error) => res.status(500).send('movies not found' + error));
+});
 
 // error handling middleware
-app.use((error, request, response, next) => {
-  console.log(error);
-  response.status(500).send(error.message);
-});
+app.use('*', (request, response) =>
+  response.status(400).send('end point does not exists')
+);
+
+// app.use((error, request, response, next) => {
+//   console.log(error);
+//   response.status(500).send(error.message);
+// });
 
 // listen on PORT/always last line of code
 app.listen(PORT, console.log(`listening on PORT ${PORT}`));

@@ -1,16 +1,19 @@
 'use strict';
 
 const axios = require('axios');
-async function getMovies(req, res, next) {
-  const city = req.query.searchQuery;
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${city}`;
+
+async function getMovies(searchQuery) {
+  // const city = req.query.searchQuery;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`;
 
   try {
     const moviesRes = await axios.get(url);
     const moviesArr = moviesRes.data.results.map((movie) => new Movie(movie));
-    res.status(200).send(moviesArr);
+    // res.status(200).send(moviesArr);
+    return Promise.resolve(moviesArr);
   } catch (error) {
-    next(error);
+    console.error(error);
+    return Promise.reject(error);
   }
 }
 
